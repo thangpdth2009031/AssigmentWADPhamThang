@@ -4,52 +4,78 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Student</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaSinhVien, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaSinhVien, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaSinhVien, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HinhThuc, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HinhThuc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HinhThuc, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+<div class="w3-container w3-card-4">
+    <h4>Create Student</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style="width: 400px">
+        @Html.Label("Mã sinh viên")
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaSinhVien, new { htmlAttributes = new { @class = "w3-input", @name = "MaSinhVien" } })
+            @Html.ValidationMessageFor(model => model.MaSinhVien, "", new { @class = "w3-text-red" })
         </div>
     </div>
-}
+    <div class="form-group" style="margin:20px 0">
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+        <div class="col-md-10">
+            @Html.Label("Hình thức nộp phạt:")
+            <p>
+
+                @Html.RadioButtonFor(model => model.HinhThuc, "ChongDay", new { @id = "chongDay", @class = "w3-radio", @checked = "checked" })
+                <label>Chống Đẩy</label>
+            </p>
+            <p>                
+                @Html.RadioButtonFor(model => model.HinhThuc, "NopTien", new { @id = "nopPhat", @class = "w3-radio" })
+                <label>Nộp Tiền</label>
+            </p>
+        </div>
+    </div>
+    <div class="form-group" id="inputChongDay" style="width: 400px">
+        @Html.Label("Số chống đẩy:")
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SoLuongChongDay, new { htmlAttributes = new { @class = "w3-input", @name = "ChongDay", @Value = 0 } })
+        </div>
+    </div>
+    <div class="form-group" id="inputNopTien" style="display: none;width: 400px">
+        @Html.Label("Số tiền nộp phạt:")
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SoLuongTienPhat, new { htmlAttributes = new { @class = "w3-input", @name = "NopTien", @Value = 0 } })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="w3-button w3-section w3-teal w3-ripple" />
+        </div>
+    </div>
+    <div style="margin:0 0 20px 0">
+        @Html.ActionLink("Back to List", "Index", "Students", new { @class = "w3-tag w3-orange", @style = "text-decoration:none;font-size:20px"})
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');
+        var chongDay1 = document.getElementById('chongDay');
+        var inputNopTien = document.getElementById('inputNopTien');
+        var inputChongDay = document.getElementById('inputChongDay');
+        var nopPhat = document.getElementById('nopPhat');        
+
+        nopPhat.onclick = function () {
+            inputChongDay.style.display = "none";
+            inputNopTien.style.display = "block";
+        }
+        chongDay1.onclick = function () {
+            inputNopTien.style.display = "none";
+            inputChongDay.style.display = "block";
+        }
+    });
+    
+</script>
+

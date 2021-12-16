@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,6 +19,7 @@ namespace PhamThangWAD.Controllers
         // GET: Students
         public ActionResult Index()
         {
+            
             return View(db.Students.ToList());
         }
 
@@ -33,12 +35,13 @@ namespace PhamThangWAD.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaSinhVien,HinhThuc,SoLuong")] Student student)
+        public ActionResult Create([Bind(Include = "MaSinhVien,HinhThuc,SoLuongChongDay,SoLuongTienPhat")] Student student)
         {
             if (ModelState.IsValid)
             {
                 db.Students.Add(student);
                 db.SaveChanges();
+                Debug.WriteLine(student);
                 return RedirectToAction("Index");
             }
 

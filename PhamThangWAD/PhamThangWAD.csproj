@@ -132,6 +132,35 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112110549577_InitialCreate.cs" />
+    <Compile Include="Migrations\202112110549577_InitialCreate.Designer.cs">
+      <DependentUpon>202112110549577_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112130858493_add_ngayNopPhat_to_student.cs" />
+    <Compile Include="Migrations\202112130858493_add_ngayNopPhat_to_student.Designer.cs">
+      <DependentUpon>202112130858493_add_ngayNopPhat_to_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112150455440_add_soluong.cs" />
+    <Compile Include="Migrations\202112150455440_add_soluong.Designer.cs">
+      <DependentUpon>202112150455440_add_soluong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112160432592_update_model.cs" />
+    <Compile Include="Migrations\202112160432592_update_model.Designer.cs">
+      <DependentUpon>202112160432592_update_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112160442369_add_soLuongint_to_student.cs" />
+    <Compile Include="Migrations\202112160442369_add_soLuongint_to_student.Designer.cs">
+      <DependentUpon>202112160442369_add_soLuongint_to_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112160502262_add_masv_to_student.cs" />
+    <Compile Include="Migrations\202112160502262_add_masv_to_student.Designer.cs">
+      <DependentUpon>202112160502262_add_masv_to_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112160505438_add_errormessage_to_student.cs" />
+    <Compile Include="Migrations\202112160505438_add_errormessage_to_student.Designer.cs">
+      <DependentUpon>202112160505438_add_errormessage_to_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -173,6 +202,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Students\Create.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Shared\_W3schoolScript.cshtml" />
+    <Content Include="Views\Shared\_W3schoolLayout.cshtml" />
+    <Content Include="Views\Shared\_W3schoolMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -189,6 +221,29 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112110549577_InitialCreate.resx">
+      <DependentUpon>202112110549577_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112130858493_add_ngayNopPhat_to_student.resx">
+      <DependentUpon>202112130858493_add_ngayNopPhat_to_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112150455440_add_soluong.resx">
+      <DependentUpon>202112150455440_add_soluong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112160432592_update_model.resx">
+      <DependentUpon>202112160432592_update_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112160442369_add_soLuongint_to_student.resx">
+      <DependentUpon>202112160442369_add_soLuongint_to_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112160502262_add_masv_to_student.resx">
+      <DependentUpon>202112160502262_add_masv_to_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112160505438_add_errormessage_to_student.resx">
+      <DependentUpon>202112160505438_add_errormessage_to_student.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,46 +1,58 @@
 ﻿@model IEnumerable<PhamThangWAD.Models.Student>
-
+@{ var data = Model.AsEnumerable(); }
 @{
     ViewBag.Title = "Index";
 }
+<h2 style="color: #009688">List Student</h2>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MaSinhVien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HinhThuc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayNopPhat)
-        </th>
-        <th></th>
-    </tr>
+<table class="w3-table-all">
+    <thead>
+        <tr class="w3-teal">
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.MaSinhVien)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.HinhThuc)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SoLuongChongDay)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SoLuongTienPhat)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.NgayNopPhat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSinhVien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhThuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongChongDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTienPhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayNopPhat)
+                </td>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaSinhVien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HinhThuc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayNopPhat)
-        </td>       
-    </tr>
-}
-
+        }
+    </tbody>
+    <div>Tổng số chống đẩy: @Model.Sum(model => model.SoLuongChongDay) cái</div>
+    <div>Tổng số tiền phạt: @Model.Sum(model => model.SoLuongTienPhat) ₫</div>
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create", "Students", new { @class = "w3-tag w3-orange", @style = "text-decoration:none;font-size:20px" })
+</p>

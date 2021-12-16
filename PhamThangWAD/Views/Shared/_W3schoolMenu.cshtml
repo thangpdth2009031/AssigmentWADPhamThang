@@ -1,0 +1,15 @@
+﻿<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="https://www.w3schools.com/images/w3schools.png" style="width:80%;"></a>
+    <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>    
+    @Html.ActionLink("Home", "Index", "Students", null, new { @class = "w3-bar-item w3-button w3-teal", @title = "Home" })
+    @Html.ActionLink("Create", "Create", "Students", null, new { @class = "w3-bar-item w3-button", @title = "Create" })
+    @Html.ActionLink("Index", "Index", "Students", null, new { @class = "w3-bar-item w3-button", @title = "Index" })    
+    @*<a class="w3-bar-item w3-button" href="#">Product</a>
+    <div>
+        <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">User Information <i class="fa fa-caret-down"></i></a>
+        <div id="demo" class="w3-hide">
+            <a class="w3-bar-item w3-button" href="#">Profile</a>
+            <a class="w3-bar-item w3-button" href="#">Order</a>
+        </div>
+    </div>*@
+</nav>
